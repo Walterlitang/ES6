@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //1.forEach 迭代（遍历）数组
+        var arr=[12,65,78,120,1,5,3,"pink","pink"];
+        var sum=0;
+        arr.forEach(function(value,index,array){
+            sum+=value;
+        })
+        console.log(sum);
+
+        //2.filter 筛选数组，返回数组
+        var newArr=arr.filter(function(value,index,array){
+            //console.log(index)
+            return value>20;
+        })
+        console.log(newArr);
+
+        //3.some 检车数组中是否有满足条件的值，返回布尔值
+        var bool=arr.some(function(value,index,array){
+            //查找到第一个满足条件的元素就中止
+            return value=="pink";
+        })
+        console.log(bool);
+
+        //4.map
+        //5.eval
+
+        //字符串该方法
+        //6.trim：去除两侧的空白字符，会返回新字符串
+        var str="   savas   ";
+        console.log(str);
+        console.log(str.trim());
+
+        //7.Object.keys()：获取对象的所有属性，会返回一个数组
+        var obj={
+            id:1,
+            pname:"小米",
+            price:1999,
+            num:2000
+        }
+        console.log(obj);
+        var arr=Object.keys(obj);
+        console.log(arr);
+
+        //8.Object.defineProperty()：修改和增加随想的属性和方法
+        //增加属性
+        Object.defineProperty(obj,"name",{
+            value:"雷军"//默认是undefined
+        })
+        console.log(obj);
+        //不允许修改属性
+        Object.defineProperty(obj,"name",{
+            writable:false
+        })
+        obj.name="雷小军";
+        console.log(obj);//发现属性没有被修改
+        //能不能被遍历
+        Object.defineProperty(obj,"address",{
+            value:"中国江西",
+            writable:false,
+            enumerable:true,//会不会被遍历，默认 false
+            configurable:false//能不能被删除或修改特性，默认不能删除
+        })
+        console.log(obj);
+        console.log(Object.keys(obj))//name就不会被遍历
+        delete obj.address;
+        delete obj.num;
+        console.log(Object.keys(obj));//num被删除了，但是address没有被删除
+
+    </script>
+</body>
+</html>

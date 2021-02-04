@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <button>点击</button>
+</head>
+<body>
+    <script>
+        //例子1
+        class Father1{
+            constructor(){
+
+            }
+            money(){
+                console.log(100)
+            }
+        }
+        class Son1 extends Father1{
+
+        }
+        var son1=new Son1();
+        son1.money();
+
+
+        //例子2
+        class Father2{
+            constructor(x,y){
+                this.x=x;
+                this.y=y;
+            }
+            sum(){
+                var sum=this.x+this.y;
+                console.log("相加的结果为"+sum);
+            }
+            say(){
+                console.log("asvasva");
+            }
+        }
+        class Son2 extends Father2{
+            constructor(x,y){
+                super(x,y);//调用了父类的构造函数
+                //super必须在子类 this 之前调用
+                this.x=x;
+                this.y=y;
+            }
+            subtract(){
+                console.log(this.x-this.y);
+            }
+        }
+        var son2=new Son2(1,2);
+        son2.sum();
+        son2.say();
+        son2.subtract();
+
+        //例子3：this的指向问题
+        console.log("例子三----------");
+        var that;
+        class Star{
+            constructor(name){
+                //constructor里面的this指向的是创建的实例对象
+                this.username=name;
+                that=this;
+                console.log(this)
+                this.name=name;
+                this.btn=document.querySelector('button');
+                this.btn.onclick=this.sing;//因为btn调用了sing，所以sing指向了btn
+                this.sing=this.sing();
+            }
+            sing(){
+                var name=that.username;
+                console.log(name+"说了这些sacasca");
+            }
+        }
+        var ldh=new Star("刘德华");
+        console.log(ldh);
+    </script>
+</body>
+</html>

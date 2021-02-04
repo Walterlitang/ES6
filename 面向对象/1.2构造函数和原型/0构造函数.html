@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //3.利用构造函数来创建对象
+        function Star(uname,age){
+            this.username=uname;//实例成员，只能通过对象来访问
+            this.age=age;
+            this.sing=function(){
+                console.log(this.username+"我会唱歌");
+            }
+        }
+        var ldh=new Star("刘德华",18);
+        ldh.sing();
+        Star.sex="男";//静态成员，只能通过构造函数来访问
+    </script>
+</body>
+</html>

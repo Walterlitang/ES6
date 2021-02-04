@@ -1,0 +1,11 @@
+ES6之前并没有给我们提供 extends 继承
+    我们可以通过过 构造函数 + 原型对象 模拟实现继承，被称为组合继承
+
+
+call()：改变 this 的指向（通过 this 改变函数指向来实现继承夫构造函数的属性）
+
+Son.prototype=Father.prortotype 会导致父原型对象随子原型对象改变而改变
+
+Son.prototype=new Father();
+//如果利用对象的形式修改了原型对象，别忘了利用 constructor 指回原来的原型对象
+Son.prototype.constructor=Son;//指回原来的构造函数

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function Star(username,age){
+            this.uname=username;
+            this.age=age;
+        }
+        //使用原型创建共享方法
+        Star.prototype.sing=function(){
+            var name=this.uname;
+            console.log(name+"csavasv");
+        }
+        //利用constructor重新指回原来的构造函数
+        Star.prototype={
+            //这种写法直接把原型对象覆盖掉了，所以要加入 constructor 指向原来的构造函数
+            constructor:Star,
+            movie:function(){
+                console.log("演电影");
+            },
+            say:function(){
+                console.log("说话");
+            }
+        }
+        //方法存储在了构造函数的原型对象里
+        console.log(Star.prototype);
+        //实例化对象
+        var ldh=new Star("刘德华",18);
+        var zxy=new Star("张学友",18);
+        //实例对象都能访问这个方法，且不用创建新的空间存储各自的方法
+        ldh.say();
+        zxy.say();
+        //输出对象发现对象实例有 _proto_ 原型存在
+        console.log(ldh);
+        //判断 __proto__ 和 prototype 相同
+        //对象身上系统添加了一个 _proto__ 指向我们构造函数的原型对象
+        console.log(ldh.__proto__===Star.prototype);
+        
+        
+        console.log(Star.prototype);
+        console.log(ldh.__proto__);
+    </script>
+</body>
+</html>

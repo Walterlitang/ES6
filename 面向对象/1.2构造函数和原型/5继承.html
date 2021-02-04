@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //call方法
+        function fn(x,y){
+            console.log("我想和手磨咖啡");
+            console.log(x+y);
+            console.log(this);
+        }
+        //1.call()可以调用函数
+        fn.call();
+        //2.修改 fn 的 this 指向
+        var obj={
+            name:"any"
+        };
+        fn.call(obj,1,2);//this指向obj
+
+
+        //借用父构造函数继承属性
+        //1.父构造函数
+        function Father(name,age){
+            //this 指向父构造函数的实例
+            this.uname2=name;
+            this.age2=age;
+        }
+        Father.prototype.sing=function(){
+            console.log("唱歌");
+        }
+        //2.构造函数
+        function Son(uname1,age1,score){
+            //this 指向子构造函数的对象实例
+            Father.call(this,uname1,age1);//调用父构造函数并将 this 指向子构造函数
+            this.score=score;
+
+        }
+        //继承父构造函数的属性
+        
+        var father=new Father("张学友",18);
+        console.log(father);
+       // console.log(son);
+        //继承父构造函数的方法
+
+        //Son.prototype=Father.prototype;//不可取，因为子构造函数的原型对象指向了夫构造函数，
+        //会导致修改子构造函数时，修改夫构造函数
+
+        Son.prototype=new Father();
+        Son.prototype.constructor=Son;
+        var son=new Son("刘德华",18,100);
+        console.log(son.__proto__);
+        console.log(Son.prototype);
+        son.__proto__.sing();
+    </script>
+</body>
+</html>

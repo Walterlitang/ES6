@@ -1,0 +1,9 @@
+forEach(value,index,array);
+遍历数组
+
+filter(value,index,array);
+筛选数组，返回一个新数组
+
+some(value,index,array);
+查找是否有满足条件的值，返回布尔值，
+查找到第一个就不会向下查了
