@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button>点击</button>
+    <button>点击</button>
+    <button>点击</button>
+    <button>点击</button>
+    <button>点击</button>
+    <script>
+        //1.call()
+        var obj={
+            name:"dvsdv"
+        }
+        function fn(arr,array){
+            console.log(typeof arr==Array)
+            console.log("参数是"+arr);
+            console.log(this);
+            console.log("函数内this的指向 "+this)
+            console.log(arr+array);
+        }
+        var ar=[1,2,3,4];
+        fn(ar);
+        fn.call(obj,["pink"]);//this从window指向了object
+
+        //2.apply()：调用函数，改变 this 的指向，但接受的参数必须是数组（伪数组）
+        console.log("----------");
+        fn.apply(obj,[1,2,3,4,5]);
+        var array=[1,65,3,99,4];
+        var math=Math.max.apply(Math,array);
+        console.log(math)
+
+        var a=Math.max(1,2,3,4);
+        console.log(a);
+
+        //2.bind()：改变this指向，但不调用，但会返回改变的新函数
+        var f=fn.bind(obj,1,2);
+        f();
+
+        //bind使用示例：如果有函数不需要立即调用，又要改变函数的this指向
+        // var btn=document.querySelector("button");
+        // btn.onclick=function(){
+        //     var that=this;
+        //     this.disabled=true;
+        //     setTimeout(function(){//setTimeout里的this指向的是window
+        //         //that.disabled=false;//写法一
+        //         this.disabled=!this.disabled;//写法二
+        //         console.log("dscasfca");
+        //     }.bind(this),3000)//这个this指向的是btn这个元素
+        // }
+
+        //bind使用示例
+        var btns=document.querySelectorAll("button");
+        for(var i=0;i<btns.length;i++){
+            console.log("casvcasva")
+            btns[i].onclick=function(){
+                this.disabled=true;
+                setTimeout(function(){
+                    this.disabled=false;
+                }.bind(this),2000)
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //'use strict';
+        //1.变量必须先声明
+        num=10;
+        console.log(num);
+        //2.不能随意删除变量
+        delete num;
+        //3.函数的默认指向为 undefined
+        function fn(){
+            console.log("函数的this指向为"+this);
+        }
+        fn();
+
+        //4.严格模式下，如果构造函数不加 new 调用，this会报错
+        function Star(){
+            this.name="名字";
+        }
+        var a=new Star();
+        console.log(window);
+        console.log(a);
+
+        //5.事件、对象指向的还是调用者
+
+        //6.函数的参数不能重复
+        function sum(a,a){
+            console.log(a+a);
+        }
+        sum(5,7);
+
+        //7.不允许在非函数代码块中 声明 函数，例如 if，for 中
+
+        
+    </script>
+</body>
+</html>

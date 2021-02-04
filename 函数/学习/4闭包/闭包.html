@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function fun(){
+            var num=10;
+            function fn(){
+                console.log(num);
+            }
+            fn();//fn是闭包函数
+
+            //return函数
+            return function(num){
+                console.log(num);
+            }
+        }
+        //fun();
+
+        //在函数外部访问另一个函数的变量
+        var f=fun();
+        //f();
+    </script>
+</body>
+</html>

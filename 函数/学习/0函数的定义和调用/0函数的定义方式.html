@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //函数的定义方式
+        /* 
+         *1.自定义函数 
+         */
+        function fn(){
+
+        }
+        /* 
+         *2.函数表达式（匿名函数） 
+         */
+        console.log("----------");
+        var fun1=function(){
+
+        }
+        /*
+         * 3.利用new Function('参数1','参数2','参数3')
+         *   不建议这么写
+         */
+        console.log("----------");
+        var fn=new Function('a=1','b=2','console.log(a+b)');//参数都要用 引号 引起来的 字符串
+        fn();
+    </script>
+</body>
+</html>
