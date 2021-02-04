@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //递归函数：函数内部自己调用自己，要加退出条件
+        var num=0;
+        function fn(){
+            console.log("打印6句话")
+            if(num===2){
+                return;
+            }
+            num++;
+            fn();
+        }
+        fn();
+
+        //递归示例：求阶乘
+        function sum(n){
+            if(n===1){
+                return 1;
+            }
+            return n*sum(n-1);
+        }
+        console.log(Number(sum(10)));
+
+        //求斐波那契数列
+        function fbnq(n){
+            if(n===2||n===1){
+                return 1;
+            }
+            return fbnq(n-1)+fbnq(n-2);
+        }
+        console.log(fbnq(5));
+    </script>
+</body>
+</html>
