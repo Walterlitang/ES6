@@ -21,18 +21,36 @@
             },
             {
                 id:2,
-                name:"服饰"
+                name:"服饰",
+                goods:[{
+                    id:11,
+                    game:"冰箱avadva"
+                },{
+                    id:12,
+                    game:"洗衣机"
+                }]
             }
         ];
         //输入id号，返回数据对象
         //1.利用forEach去遍历每一个对象
-        function getID(json,id){
+        //var obj=[];
+        //var j=0;
+        function getID(json,id){    
+            var obj={};
             json.forEach(function(item){
-                item.id==id?console.log(item):"";
+                if(item.id==id){
+                    //obj[j++]=item;
+                    obj=item;
+                    return obj;
+                } else if(item.goods && item.goods.length>0){
+                    //getID(item.goods,id);
+                    obj=getID(item.goods,id);
+                }
             })
+            return obj;
         }
-        getID(data,1);
-        getID(data,2);
+        console.log(getID(data,11));
+        //getID(data,11);
     </script>
 </body>
 </html>
