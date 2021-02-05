@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <textarea name="" id="TXT" cols="30" rows="10"></textarea>
+    <button>点击</button>
+    <div></div>
+    <script>
+        var txt=document.getElementById("TXT");
+        var div=document.querySelector("div");
+        var btn=document.querySelector("button");
+        btn.onclick=function(){
+            //console.log(txt.value);
+            var txt1=txt.value.replace("激情","**");
+            div.innerHTML=txt1;
+        }
+        /*
+        正则表达式的作用：
+            匹配、提取、过滤字符串
+            */
+        //正则表达式
+        /*
+          /abc/：匹配包含abc
+          ^：以谁开头
+          $：以谁结尾
+          []：其中任一
+          -：在谁之间
+          ()：优先级
+          *：0次或以上
+          +：1次或以上
+          ?：0次或一次
+          [^]：取反
+
+          /d：数字
+          /D：除了数字
+          /w：字符串、数字、下划线
+          /W：除了
+          /s：空格、换行等
+          /S：除了空格换行等
+         */
+    </script>
+</body>
+</html>
