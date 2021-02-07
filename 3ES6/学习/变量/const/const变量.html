@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //const：声明常量（就是不能变化的量）
+        //1.具有块级作用域
+        if(true){
+            const str=123;
+            console.log(str);
+        }
+        //console.log(str);//报错
+
+        if(true){
+            const a=10;
+            if(true){
+                const a=20;
+                console.log(a);//a为20
+            }
+            console.log(a);//a为10
+        }
+        //console.log(a);//输出a报错
+
+        //2.声明变量必须先赋初始值
+        //const PI;
+        //console.log(PI);
+
+        //3.生命的值不能修改（值对应的内存地址不可更改）
+        //数据值内部可以更改，但数据本身不能更改
+        const arr=[1,2,3];
+        arr[0]=3;
+        arr[1]=15;
+        console.log(arr);
+        //arr=[2,5,8];//报错，不能整个修改
+        console.log(arr);
+        var obj
+    </script>
+</body>
+</html>

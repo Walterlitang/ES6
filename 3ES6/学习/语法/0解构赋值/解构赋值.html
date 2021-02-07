@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //数组解构允许我们按照一一对应的关系从数组中提取值，然后将值赋值给变量
+        let arr=[1,2,3];
+        let [a,b,c,d,e]=arr;
+        console.log(a);
+        console.log(d);
+
+        //对象解构
+        let person={name:'zhangsan',age:20,sex:"男"};
+        //如果 person 中有 name，age，sex就直接赋值
+        let {name,age,sex,height}=person;
+        console.log(name);
+        console.log(height);
+        //将person中的name值赋值给newName
+        let {name:newName,age:newAge,sex:newSex,height:newHeight}=person;
+        console.log(newAge);
+        console.log(name);
+        console.log(newHeight);
+
+    </script>
+</body>
+</html>

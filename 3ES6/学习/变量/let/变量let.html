@@ -7,6 +7,56 @@
     <title>Document</title>
 </head>
 <body>
-    
+    <script>
+        //let声明的变量指在块级作用域中有效
+        //块级作用域：大括号中
+        if(true){
+            let a=10;
+            console.log(a);//可以访问
+            if(true){
+                let c=12;
+            }
+            //console.log(c);
+        }
+        //console.log(a);//访问不到
+
+        //循环后的变量依然能访问到
+        for(var i=0;i<2;i++){
+
+        }
+        console.log(i);// i 依然能访问到
+
+        //let声明的变量要先声明
+        //console.log(str);
+        let str=10;//直接报错，否则值为 undefined
+
+        //暂时性死区
+        var num=10;
+        if(true){
+            //console.log(num);//会报错
+            let num=20;//内部声明的变量和外部没有关系
+        }
+
+        //面试题
+        console.log("var循环");
+        var arr=[];
+        for(var i=0;i<2;i++){
+            arr[i]=function(){
+                console.log(i);
+            }
+        }
+        arr[0]();
+        arr[1]();//输出的都是2
+
+        console.log("let循环");
+        var arr=[];
+        for(let i=0;i<2;i++){
+            arr[i]=function(){
+                console.log(i);
+            }
+        }
+        arr[0]();//输出的是0
+        arr[1]();//输出的是1
+    </script>
 </body>
 </html>

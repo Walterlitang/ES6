@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+    <div>4</div>
+    <div>5</div>
+    <script>
+        //扩展运算符：将数组变成参数序列
+        let arr=[1,2,3];
+        console.log(...arr);
+
+        //方法一：将数组合并
+        let arr1=[1,2,3];
+        let arr2=[2,3,4];
+        let arr3=[...arr1,...arr2];
+        console.log(arr3);
+
+        //方法二：将数组合并
+        arr1.push(...arr2);
+        console.log(arr1);
+
+        //扩展运算符可以将 伪数组 或 可遍历的对象 转换为 真正的数组
+        let objDivs=document.getElementsByTagName("div");
+        console.log(objDivs);
+        var arr4=[];
+        arr4.push(...objDivs);
+        console.log(arr4);
+        arr4.push("a");
+        console.log(arr4);
+        //伪数组不能在末尾添加元素
+        //objDivs.push("a");
+        //console.log(objDivs);
+
+        //将伪数组转换为数组
+        var arrayLink={
+            "0":"1",
+            "1":"2",
+            "length":2
+        };
+        //方法接收第二个参数，进行运算
+        var newAry=Array.from(arrayLink,item=>item*2);
+        console.log(newAry);
+    </script>
+</body>
+</html>
